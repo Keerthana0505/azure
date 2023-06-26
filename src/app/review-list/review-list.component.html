@@ -1,0 +1,41 @@
+<div class="review-Container">
+  <h2>Add a New Review</h2>
+
+  <form [formGroup]="reviewForm" (ngSubmit)="addReview()" novalidate>
+    <div>
+      <mat-form-field color="primary" class="example-full-width">
+        <mat-label>ADD REVIEW</mat-label>
+        <textarea
+          matInput
+          placeholder="Enter the Review Name"
+          formControlName="reviewDescription"
+          required
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="10"
+        ></textarea>
+        
+      </mat-form-field>
+      <button mat-icon-button color="primary" type="submit" [disabled]="reviewForm.invalid">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-error
+        *ngIf="
+          reviewForm?.get('reviewDescription')?.invalid &&
+          reviewForm?.get('reviewDescription')?.touched
+        "
+      >
+        Review is required.
+      </mat-error>
+     
+    </div>
+    
+  </form>
+</div>
+
+<div class="review-list-container">
+  <app-review-card
+    *ngFor="let mv of reviewList"
+    [review]="mv"
+  ></app-review-card>
+</div>
