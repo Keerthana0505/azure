@@ -9,7 +9,8 @@ import { Review } from '../review-list/review-list.component';
 })
 export class ReviewCardComponent {
   @Input() review = {
-    id:'1',
-    reviewDescription:"The plan is very Good"
+    id:'',
+    reviewDescription:'',
+    rating:0
   };
 }

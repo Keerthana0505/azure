@@ -14,11 +14,101 @@
           cdkAutosizeMinRows="1"
           cdkAutosizeMaxRows="10"
         ></textarea>
-        
       </mat-form-field>
-      <button mat-icon-button color="primary" type="submit" [disabled]="reviewForm.invalid">
+
+
+      <mat-form-field>
+        <mat-select placeholder="Plan Type">
+          <mat-option *ngFor="let plan of plantype" [value]="plan.value">
+            {{ plan.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error
+        *ngIf="
+          reviewForm?.get('planType')?.invalid &&
+          reviewForm?.get('planType')?.touched
+        "
+      >
+        Plan Type is required.
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Favorite food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+<!-- 
+      <mat-form-field color="primary" class="example-full-width">
+        <mat-label>Plan Name</mat-label>
+        <mat-select formControlName="planName" required>
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'prepaid'"
+            value="plan1"
+            >Plan 1</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'prepaid'"
+            value="plan2"
+            >Plan 2</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'prepaid'"
+            value="plan3"
+            >Plan 3</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'postpaid'"
+            value="plan4"
+            >Plan 4</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'postpaid'"
+            value="plan5"
+            >Plan 5</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'postpaid'"
+            value="plan6"
+            >Plan 6</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'addon'"
+            value="plan7"
+            >Plan 7</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'addon'"
+            value="plan8"
+            >Plan 8</mat-option
+          >
+          <mat-option
+            *ngIf="reviewForm.get('planType')?.value === 'addon'"
+            value="plan9"
+            >Plan 9</mat-option
+          >
+        </mat-select>
+        <mat-error
+          *ngIf="
+            reviewForm?.get('planName')?.invalid &&
+            reviewForm?.get('planName')?.touched
+          "
+        >
+          Plan Name is required.
+        </mat-error>
+      </mat-form-field> -->
+
+      <button
+        mat-icon-button
+        color="primary"
+        type="submit"
+        [disabled]="reviewForm.invalid"
+      >
         <mat-icon>add</mat-icon>
       </button>
+
       <mat-error
         *ngIf="
           reviewForm?.get('reviewDescription')?.invalid &&
@@ -27,9 +117,7 @@
       >
         Review is required.
       </mat-error>
-     
     </div>
-    
   </form>
 </div>
 

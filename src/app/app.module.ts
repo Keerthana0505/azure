@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,MatButtonModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule,FormsModule,MatIconModule
+    AppRoutingModule,MatButtonModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule,FormsModule,MatIconModule,
+    MatOptionModule,MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
