@@ -5,6 +5,8 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 
 export interface Review {
   id: string;
@@ -16,32 +18,20 @@ export interface Review {
   styleUrls: ['./review-list.component.css'],
 })
 export class ReviewListComponent {
-  reviewList = [
-    { id: '2', reviewDescription: 'The Plan is not Appropriate', rating: 5 },
-    { id: '3', reviewDescription: 'The Plan is Appropriate',rating:4 },
-    { id: '4', reviewDescription: 'The Plan cost is not Appropriate',rating:5 },
-  ]; 
+  constructor(private formBuilder: FormBuilder,private http:HttpClient) {}
+  reviewList: any;
+  myReviewList:any;
+  userId='ID0001'
 
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  ngOnInit(){
+    this.http.get(`https://localhost:7257/api/Review/reviews/alluser/${this.userId}`).subscribe(
+      (data: any) => {
+        this.reviewList = data;
+      }
+    ); 
     
-  plantype = [
-    {value: 'PostPaid', viewValue: 'PostPaid'},
-    {value: 'PrePaid', viewValue: 'PrePaid'},
-    {value: 'AddOn', viewValue: 'AddOn'}
-  ];
+  }
 
 
-  constructor(private formBuilder: FormBuilder) {}
-
-  reviewForm = this.formBuilder.group({
-    reviewDescription: ['', Validators.required],
-    planType: ['', Validators.required],
-      planName: ['', Validators.required]
-  });
-
-  addReview() {}
+ 
 }

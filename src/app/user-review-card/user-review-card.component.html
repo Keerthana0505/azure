@@ -1,0 +1,20 @@
+<div class="review-container">
+    <div class="plan-container">
+      <h2>{{ review.planType }}</h2>
+      <h2>{{ review.planName }}</h2>
+      <h2>{{ review.reviewDateTime }}</h2>
+    </div>
+    <h2>{{ review.reviewDescription }}</h2>
+  
+    <div class="star-rating">
+      <mat-icon *ngFor="let star of getStarsArray(review?.rating || 0)">star</mat-icon>
+    </div>
+      
+    <button mat-icon-button color="primary" type="submit" (click)="editReview(review.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+  
+    <button mat-icon-button color="primary" type="submit" (click)="delReview(review.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>

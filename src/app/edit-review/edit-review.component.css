@@ -1,0 +1,32 @@
+.review-Container {
+    width: 1200px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-right: 20px;
+  }
+  
+  .review-Container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+  }
+  mat-form-field {
+    margin-right: 12px;
+    width: 1000px;
+  }
+  .input-container .example-full-width {
+    flex: 1;
+    margin-right: 10px;
+    background-color: rgb(227, 192, 227);
+  }
+  
+  .input-container button {
+    gap: 20px;
+    flex-shrink: 1000px;
+  }
+  
+  

@@ -1,0 +1,7 @@
+<div class="review-list-container">
+    <app-user-review-card
+      *ngFor="let rv of myReviewList$ | async"
+      [review]="rv" (delete)="delgetReview($event)"
+    > </app-user-review-card>
+  </div>
+  

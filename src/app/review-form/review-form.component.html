@@ -1,0 +1,83 @@
+<div class="review-Container">
+    <h2>Add a New Review</h2>
+  
+    <form [formGroup]="reviewForm" (ngSubmit)="addReview()" novalidate>
+      <div>
+        <mat-form-field color="primary" class="example-full-width">
+          <mat-label>ADD REVIEW</mat-label>
+          <textarea
+            matInput
+            placeholder="Enter the Review Name"
+            formControlName="reviewDescription"
+            required
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10"
+          ></textarea>
+          <mat-error
+          *ngIf="
+            reviewForm?.get('reviewDescription')?.invalid &&
+            reviewForm?.get('reviewDescription')?.touched
+          "
+        >
+          Review is required.
+        </mat-error>
+        </mat-form-field>
+  
+  
+        <mat-form-field color="primary" class="example-full-width">
+          <mat-label>Add Rating</mat-label>
+          <input
+            matInput
+            placeholder="Enter the Rating"
+            formControlName="rating"
+            required
+          
+          >
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-select placeholder="Plan Type" formControlName="planType">
+            <mat-option   *ngFor="let plan of plantype" [value]="plan.value">
+              {{ plan.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="
+            reviewForm?.get('planType')?.invalid &&
+            reviewForm?.get('planType')?.touched
+          "
+        >
+          Plan Type is required.
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Plan Name" formControlName="planName">
+            <mat-option *ngFor="let plan of planName" [value]="plan.value">
+              {{ plan.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-error
+        *ngIf="
+          reviewForm?.get('planName')?.invalid &&
+          reviewForm?.get('planName')?.touched
+        "
+      >
+        Plan Type is required.
+      </mat-error>
+       
+       
+      </div>
+      <button
+      mat-icon-button
+      color="primary"
+      type="submit"
+     
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  
+    </form>
+  </div>

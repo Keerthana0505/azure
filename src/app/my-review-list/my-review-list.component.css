@@ -1,5 +1,5 @@
 
-  .review-list-container {
+.review-list-container {
     display:flex;
     gap: 24px;
     flex-wrap: wrap;
@@ -7,4 +7,3 @@
     padding-bottom: 50px;
     margin-bottom: 50px;
   }
-  
